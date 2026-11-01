@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INR to USD Converter</title>
+</head>
+
+<body>
+    <h1>INR to USD Converter</h1>
+
+    <label for="inr">Enter amount in INR:</label>
+    <input type="number" id="inr" min="0" step="any">
+
+    <button onclick="convertCurrency()">Convert</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function convertCurrency() {
+            const amtInr = Number(document.getElementById("inr").value);
+            const exchangeRate = 96;
+
+            if (amtInr < 0 || document.getElementById("inr").value === "") {
+                document.getElementById("result").textContent =
+                    "Please enter a valid amount.";
+                return;
+            }
+
+            const amtUsd = amtInr / exchangeRate;
+
+            document.getElementById("result").textContent =
+                "Your amount in USD is $" + amtUsd.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
